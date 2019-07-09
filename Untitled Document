@@ -1,0 +1,8 @@
+9999f4bbca9415387728b69fcc4c4a38b67066e2
+geth --rinkeby account new
+geth --rinkeby --rpc --rpcapi="personal,eth,network,web3,net" --ipcpath "./.ethereum/geth.ipc"
+geth attach ipc:"./.ethereum/geth.ipc"
+sudo netstat -ltnp | grep -w ':30303'
+sudo kill -9 process id
+personal.unlockAccount(eth.accounts[0],null,5000)
+truffle migrate --reset --compile-all --network rinkeby

@@ -19,5 +19,10 @@ npm run dev
 ```
 To deploy on ropsten
 ```sh
-deploy --network ropsten-infura
+deploy --network ropsten
 ```
+To deploy on rinkeby
+```sh
+truffle migrate --reset --compile-all --network rinkeby
+```
+

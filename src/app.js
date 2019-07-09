@@ -1,74 +1,133 @@
 App = {
-    loading: false,
+    web3Provider: null,
     contracts: {},
+    account: '0x0',
+    loading: false,
+    tokenPrice: 1000000000000000,
+    tokenSold: 0,
+    tokensAvailable: 750000,
 
-    load: async() => {
-        await App.loadWeb3()
-        await App.loadAccount()
-        await App.loadContract()
+    init: function() {
+        console.log("App initialized...")
+        return App.initWeb3();
     },
 
-    // https://medium.com/metamask/https-medium-com-metamask-breaking-change-injecting-web3-7722797916a8
-    loadWeb3: async() => {
+    initWeb3: function() {
         if (typeof web3 !== 'undefined') {
-            App.web3Provider = web3.currentProvider
-            web3 = new Web3(web3.currentProvider)
+            // If a web3 instance is already provided by Meta Mask.
+            App.web3Provider = web3.currentProvider;
+            web3 = new Web3(web3.currentProvider);
         } else {
-            window.alert("Please connect to Metamask.")
+            // Specify default instance if no web3 instance provided
+            App.web3Provider = new Web3.providers.HttpProvider('http://localhost:7545');
+            web3 = new Web3(App.web3Provider);
         }
-        // Modern dapp browsers...
-        if (window.ethereum) {
-            window.web3 = new Web3(ethereum)
-            try {
-                // Request account access if needed
-                await ethereum.enable()
-                    // Acccounts now exposed
-                web3.eth.sendTransaction({ /* ... */ })
-            } catch (error) {
-                // User denied account access...
+        return App.initContracts();
+    },
+
+    initContracts: function() {
+        $.getJSON("ya7yoo7TokenSale.json", function(ya7yoo7TokenSale) {
+            App.contracts.ya7yoo7TokenSale = TruffleContract(ya7yoo7TokenSale);
+            App.contracts.ya7yoo7TokenSale.setProvider(App.web3Provider);
+            App.contracts.ya7yoo7TokenSale.deployed().then(function(ya7yoo7TokenSale) {
+                console.log("Dapp Token Sale Address:", ya7yoo7TokenSale.address);
+            });
+        }).done(function() {
+            $.getJSON("ya7yoo7.json", function(ya7yoo7) {
+                App.contracts.ya7yoo7 = TruffleContract(ya7yoo7);
+                App.contracts.ya7yoo7.setProvider(App.web3Provider);
+                App.contracts.ya7yoo7.deployed().then(function(ya7yoo7) {
+                    console.log("Dapp Token Address:", ya7yoo7.address);
+                });
+
+                App.listenForEvents();
+                return App.render();
+            });
+        })
+    },
+
+    // Listen for events emitted from the contract
+    listenForEvents: function() {
+        App.contracts.ya7yoo7TokenSale.deployed().then(function(instance) {
+            instance.Sell({}, {
+                fromBlock: 0,
+                toBlock: 'latest',
+            }).watch(function(error, event) {
+                console.log("event triggered", event);
+                App.render();
+            })
+        })
+    },
+
+    render: function() {
+        if (App.loading) {
+            return;
+        }
+        App.loading = true;
+
+        var loader = $('#loader');
+        var content = $('#content');
+
+        loader.show();
+        content.hide();
+
+        // Load account data
+        web3.eth.getCoinbase(function(err, account) {
+            if (err === null) {
+                App.account = account;
+                $('#accountAddress').html("Your Account: " + account);
             }
-        }
-        // Legacy dapp browsers...
-        else if (window.web3) {
-            App.web3Provider = web3.currentProvider
-            window.web3 = new Web3(web3.currentProvider)
-                // Acccounts always exposed
-            web3.eth.sendTransaction({ /* ... */ })
-        }
-        // Non-dapp browsers...
-        else {
-            console.log('Non-Ethereum browser detected. You should consider trying MetaMask!')
-        }
+        })
+
+        // Load token sale contract
+        App.contracts.ya7yoo7TokenSale.deployed().then(function(instance) {
+            ya7yoo7TokenSaleInstance = instance;
+            return ya7yoo7TokenSaleInstance.tokenPrice();
+        }).then(function(tokenPrice) {
+            App.tokenPrice = tokenPrice;
+            $('.token-price').html(web3.fromWei(App.tokenPrice, "ether").toNumber());
+            return ya7yoo7TokenSaleInstance.tokenSold();
+        }).then(function(tokenSold) {
+            App.tokenSold = tokenSold.toNumber();
+            $('.tokens-sold').html(App.tokenSold);
+            $('.tokens-available').html(App.tokensAvailable);
+
+            var progressPercent = (Math.ceil(App.tokenSold) / App.tokensAvailable) * 100;
+            $('#progress').css('width', progressPercent + '%');
+
+            // Load token contract
+            App.contracts.ya7yoo7.deployed().then(function(instance) {
+                ya7yoo7Instance = instance;
+                return ya7yoo7Instance.balanceOf(App.account);
+            }).then(function(balance) {
+                $('.dapp-balance').html(balance.toNumber());
+                App.loading = false;
+                loader.hide();
+                content.show();
+            })
+        });
     },
 
-    loadAccount: async() => {
-        // Set the current blockchain account
-        App.account = web3.eth.accounts[0]
-    },
-
-    loadContract: async() => {
-        // Create a JavaScript version of the smart contract
-        const Simple = await $.getJSON('Simple.json')
-        App.contracts.Simple = TruffleContract(Simple)
-        App.contracts.Simple.setProvider(App.web3Provider)
-
-        // Hydrate the smart contract with values from the blockchain
-        App.Simple = await App.contracts.Simple.deployed()
-    },
-    getvalue: async() => {
-        var value = await App.Simple.get()
-        $('#getValue').html(value)
-
-    },
-    setValue: async() => {
-        var value = $('#setValue').val()
-        await App.Simple.set(value)
+    buyTokens: function() {
+        $('#content').hide();
+        $('#loader').show();
+        var numberOfTokens = $('#numberOfTokens').val();
+        App.contracts.ya7yoo7TokenSale.deployed().then(function(instance) {
+            return instance.buyTokens(numberOfTokens, {
+                from: App.account,
+                value: numberOfTokens * App.tokenPrice,
+                gas: 500000 // Gas limit
+            });
+        }).then(function(result) {
+            console.log("Tokens bought...")
+            $('form').trigger('reset') // reset number of tokens in form
+                // Wait for Sell event
+        });
     }
-
 }
 
-$(() => {
-    $(window).load(() => {
-        App.load()
+$(function() {
+    $(window).load(function() {
+        App.init();
     })
-})
+});

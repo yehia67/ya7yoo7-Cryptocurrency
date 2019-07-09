@@ -30,9 +30,9 @@ constructor (ya7yoo7 _tokenContract,uint256 _tokenPrice) public {
     }
 
 function buyTokens(uint256 _numberOfTokens)  public payable  {
-    require(msg.value == mul(_numberOfTokens,tokenPrice));
-    require(tokenContract.balanceOf(address(this)) >= _numberOfTokens);
-    require(tokenContract.transfer(msg.sender,_numberOfTokens));
+   // require(msg.value == mul(_numberOfTokens,tokenPrice));
+    //require(tokenContract.balanceOf(address(this)) >= _numberOfTokens);
+    //require(tokenContract.transfer(msg.sender,_numberOfTokens));
     tokenSold += _numberOfTokens;
     emit Sell(msg.sender,_numberOfTokens);
 }

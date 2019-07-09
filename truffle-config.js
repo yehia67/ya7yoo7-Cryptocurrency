@@ -14,6 +14,12 @@ module.exports = {
             port: 8545,
             network_id: '*', // eslint-disable-line camelcase
         },
+        rinkeby: {
+            host: "localhost",
+            port: 8545,
+            network_id: 4,
+            gas: 4700000
+        },
         ropsten: {
             provider: function() {
                 return new HDWalletProvider(
@@ -23,6 +29,8 @@ module.exports = {
             },
             gas: 5000000,
             gasPrice: 25000000000,
+            confirmations: 2, // # of confs to wait between deployments. (default: 0)
+            skipDryRun: true,
             network_id: 3
         }
     },

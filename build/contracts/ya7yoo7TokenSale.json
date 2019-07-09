@@ -1,0 +1,828 @@
+{
+  "contractName": "ya7yoo7TokenSale",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "tokenContract",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function",
+      "signature": "0x55a373d6"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "tokenPrice",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function",
+      "signature": "0x7ff9b596"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_tokenContract",
+          "type": "address"
+        },
+        {
+          "name": "_tokenPrice",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor",
+      "signature": "constructor"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.0+commit.1d4f565a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"tokenContract\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"tokenPrice\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"name\":\"_tokenContract\",\"type\":\"address\"},{\"name\":\"_tokenPrice\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/yehia/Documents/Projects/solidity/ya7yoo7/contracts/ya7yoo7TokenSale.sol\":\"ya7yoo7TokenSale\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/yehia/Documents/Projects/solidity/ya7yoo7/contracts/ya7yoo7.sol\":{\"keccak256\":\"0x974141e9271ed32a6e1fa9ed090beb3c53004aa0e880b7697b2c7cbea16b2ca2\",\"urls\":[\"bzzr://04ac6903477bebab7e715ad7e6ae5556f77ec486045900f1d4dd28849bb0f35d\"]},\"/home/yehia/Documents/Projects/solidity/ya7yoo7/contracts/ya7yoo7TokenSale.sol\":{\"keccak256\":\"0x8359a5647e6b3f6e224afb0de303fb23f71da6692e98568955a426a685de504f\",\"urls\":[\"bzzr://74231be8b1743281657f4d3a5010cf3b4f71106c7cf3ae5f4468c4989c0da96d\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506040516040806101738339810180604052604081101561003057600080fd5b50805160209091015160008054600160a060020a0319908116331790915560018054600160a060020a03909416939091169290921790915560025560fa806100796000396000f3fe60806040526004361060485763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166355a373d68114604d5780637ff9b596146088575b600080fd5b348015605857600080fd5b50605f60ac565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b348015609357600080fd5b50609a60c8565b60408051918252519081900360200190f35b60015473ffffffffffffffffffffffffffffffffffffffff1681565b6002548156fea165627a7a72305820603ba3e9dd55ee46ad6f22750777fd627e3e952bf26a411422621b4c7dacd1920029",
+  "deployedBytecode": "0x60806040526004361060485763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166355a373d68114604d5780637ff9b596146088575b600080fd5b348015605857600080fd5b50605f60ac565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b348015609357600080fd5b50609a60c8565b60408051918252519081900360200190f35b60015473ffffffffffffffffffffffffffffffffffffffff1681565b6002548156fea165627a7a72305820603ba3e9dd55ee46ad6f22750777fd627e3e952bf26a411422621b4c7dacd1920029",
+  "sourceMap": "48:260:2:-;;;147:157;8:9:-1;5:2;;;30:1;27;20:12;5:2;147:157:2;;;;;;;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;147:157:2;;;;;;;217:5;:18;;-1:-1:-1;;;;;;217:18:2;;;225:10;217:18;;;;;241:30;;-1:-1:-1;;;;;241:30:2;;;;;;;;;;;;;;277:10;:24;48:260;;;;;;",
+  "deployedSourceMap": "48:260:2:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;90:28;;8:9:-1;5:2;;;30:1;27;20:12;5:2;90:28:2;;;;;;;;;;;;;;;;;;;;;;;120:25;;8:9:-1;5:2;;;30:1;27;20:12;5:2;120:25:2;;;;;;;;;;;;;;;;;;;;90:28;;;;;;:::o;120:25::-;;;;:::o",
+  "source": "pragma solidity ^0.5.0;\nimport './ya7yoo7.sol';\ncontract ya7yoo7TokenSale{\naddress admin;\nya7yoo7 public tokenContract;\nuint256 public tokenPrice;\nconstructor (ya7yoo7 _tokenContract,uint256 _tokenPrice) public {\n    admin = msg.sender;\n    tokenContract = _tokenContract;\n    tokenPrice = _tokenPrice;\n}\n\n\n}\n",
+  "sourcePath": "/home/yehia/Documents/Projects/solidity/ya7yoo7/contracts/ya7yoo7TokenSale.sol",
+  "ast": {
+    "absolutePath": "/home/yehia/Documents/Projects/solidity/ya7yoo7/contracts/ya7yoo7TokenSale.sol",
+    "exportedSymbols": {
+      "ya7yoo7TokenSale": [
+        306
+      ]
+    },
+    "id": 307,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 277,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:2"
+      },
+      {
+        "absolutePath": "/home/yehia/Documents/Projects/solidity/ya7yoo7/contracts/ya7yoo7.sol",
+        "file": "./ya7yoo7.sol",
+        "id": 278,
+        "nodeType": "ImportDirective",
+        "scope": 307,
+        "sourceUnit": 276,
+        "src": "24:23:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 306,
+        "linearizedBaseContracts": [
+          306
+        ],
+        "name": "ya7yoo7TokenSale",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 280,
+            "name": "admin",
+            "nodeType": "VariableDeclaration",
+            "scope": 306,
+            "src": "75:13:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 279,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "75:7:2",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 282,
+            "name": "tokenContract",
+            "nodeType": "VariableDeclaration",
+            "scope": 306,
+            "src": "90:28:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_ya7yoo7_$275",
+              "typeString": "contract ya7yoo7"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 281,
+              "name": "ya7yoo7",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 275,
+              "src": "90:7:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ya7yoo7_$275",
+                "typeString": "contract ya7yoo7"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 284,
+            "name": "tokenPrice",
+            "nodeType": "VariableDeclaration",
+            "scope": 306,
+            "src": "120:25:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 283,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "120:7:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 304,
+              "nodeType": "Block",
+              "src": "211:93:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 294,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 291,
+                      "name": "admin",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 280,
+                      "src": "217:5:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 292,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 321,
+                        "src": "225:3:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 293,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "225:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "src": "217:18:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 295,
+                  "nodeType": "ExpressionStatement",
+                  "src": "217:18:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 298,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 296,
+                      "name": "tokenContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 282,
+                      "src": "241:13:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_ya7yoo7_$275",
+                        "typeString": "contract ya7yoo7"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 297,
+                      "name": "_tokenContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 286,
+                      "src": "257:14:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_ya7yoo7_$275",
+                        "typeString": "contract ya7yoo7"
+                      }
+                    },
+                    "src": "241:30:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ya7yoo7_$275",
+                      "typeString": "contract ya7yoo7"
+                    }
+                  },
+                  "id": 299,
+                  "nodeType": "ExpressionStatement",
+                  "src": "241:30:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 302,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 300,
+                      "name": "tokenPrice",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 284,
+                      "src": "277:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 301,
+                      "name": "_tokenPrice",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 288,
+                      "src": "290:11:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "277:24:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 303,
+                  "nodeType": "ExpressionStatement",
+                  "src": "277:24:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 305,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 289,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 286,
+                  "name": "_tokenContract",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 305,
+                  "src": "160:22:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ya7yoo7_$275",
+                    "typeString": "contract ya7yoo7"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 285,
+                    "name": "ya7yoo7",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 275,
+                    "src": "160:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ya7yoo7_$275",
+                      "typeString": "contract ya7yoo7"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 288,
+                  "name": "_tokenPrice",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 305,
+                  "src": "183:19:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 287,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "183:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "159:44:2"
+            },
+            "returnParameters": {
+              "id": 290,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "211:0:2"
+            },
+            "scope": 306,
+            "src": "147:157:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 307,
+        "src": "48:260:2"
+      }
+    ],
+    "src": "0:309:2"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/yehia/Documents/Projects/solidity/ya7yoo7/contracts/ya7yoo7TokenSale.sol",
+    "exportedSymbols": {
+      "ya7yoo7TokenSale": [
+        306
+      ]
+    },
+    "id": 307,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 277,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:2"
+      },
+      {
+        "absolutePath": "/home/yehia/Documents/Projects/solidity/ya7yoo7/contracts/ya7yoo7.sol",
+        "file": "./ya7yoo7.sol",
+        "id": 278,
+        "nodeType": "ImportDirective",
+        "scope": 307,
+        "sourceUnit": 276,
+        "src": "24:23:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 306,
+        "linearizedBaseContracts": [
+          306
+        ],
+        "name": "ya7yoo7TokenSale",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 280,
+            "name": "admin",
+            "nodeType": "VariableDeclaration",
+            "scope": 306,
+            "src": "75:13:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 279,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "75:7:2",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 282,
+            "name": "tokenContract",
+            "nodeType": "VariableDeclaration",
+            "scope": 306,
+            "src": "90:28:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_ya7yoo7_$275",
+              "typeString": "contract ya7yoo7"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 281,
+              "name": "ya7yoo7",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 275,
+              "src": "90:7:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ya7yoo7_$275",
+                "typeString": "contract ya7yoo7"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 284,
+            "name": "tokenPrice",
+            "nodeType": "VariableDeclaration",
+            "scope": 306,
+            "src": "120:25:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 283,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "120:7:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 304,
+              "nodeType": "Block",
+              "src": "211:93:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 294,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 291,
+                      "name": "admin",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 280,
+                      "src": "217:5:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 292,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 321,
+                        "src": "225:3:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 293,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "225:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "src": "217:18:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 295,
+                  "nodeType": "ExpressionStatement",
+                  "src": "217:18:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 298,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 296,
+                      "name": "tokenContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 282,
+                      "src": "241:13:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_ya7yoo7_$275",
+                        "typeString": "contract ya7yoo7"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 297,
+                      "name": "_tokenContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 286,
+                      "src": "257:14:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_ya7yoo7_$275",
+                        "typeString": "contract ya7yoo7"
+                      }
+                    },
+                    "src": "241:30:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ya7yoo7_$275",
+                      "typeString": "contract ya7yoo7"
+                    }
+                  },
+                  "id": 299,
+                  "nodeType": "ExpressionStatement",
+                  "src": "241:30:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 302,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 300,
+                      "name": "tokenPrice",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 284,
+                      "src": "277:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 301,
+                      "name": "_tokenPrice",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 288,
+                      "src": "290:11:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "277:24:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 303,
+                  "nodeType": "ExpressionStatement",
+                  "src": "277:24:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 305,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 289,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 286,
+                  "name": "_tokenContract",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 305,
+                  "src": "160:22:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ya7yoo7_$275",
+                    "typeString": "contract ya7yoo7"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 285,
+                    "name": "ya7yoo7",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 275,
+                    "src": "160:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ya7yoo7_$275",
+                      "typeString": "contract ya7yoo7"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 288,
+                  "name": "_tokenPrice",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 305,
+                  "src": "183:19:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 287,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "183:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "159:44:2"
+            },
+            "returnParameters": {
+              "id": 290,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "211:0:2"
+            },
+            "scope": 306,
+            "src": "147:157:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 307,
+        "src": "48:260:2"
+      }
+    ],
+    "src": "0:309:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xa1E0d33fa5357440b798d64b0B7EB4d928f63CD0",
+      "transactionHash": "0x584275adc441e205566b609de1fb5e881a65699ad3c306cafff1260cd7f01099"
+    }
+  },
+  "schemaVersion": "3.0.8",
+  "updatedAt": "2019-07-09T07:23:43.955Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
